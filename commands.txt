@@ -1,0 +1,8 @@
+# REQUIRED must be installed
+dotnet tool install --global dotnet-ef
+
+# 1. Scaffold the migration files
+dotnet ef migrations add InitialCreate
+
+# 2. Physically create the tables in your SQLite database
+dotnet ef database update
