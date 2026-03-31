@@ -44,11 +44,11 @@ Layered Service Architecture Diagram
 
 ```mermaid
 graph TD
-    A["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🏠 Hosting Layer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"] --> B["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🛡️ Security Layer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
-    B --> C["&nbsp;&nbsp;&nbsp; 📡 Service Interface &nbsp;&nbsp;&nbsp;"]
-    C --> D["&nbsp;&nbsp;&nbsp;&nbsp; 🧠 Business Logic &nbsp;&nbsp;&nbsp;&nbsp;"]
-    D --> E["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 💾 Data Access &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
-    E --> F[("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🗄️ Database &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")]
+    A["<div style='color:#01579b'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🏠 Hosting Layer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>"] --> B["<div style='color:#b71c1c'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🛡️ Security Layer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>"]
+    B --> C["<div style='color:#e65100'>&nbsp;&nbsp;&nbsp; 📡 Service Interface &nbsp;&nbsp;&nbsp;</div>"]
+    C --> D["<div style='color:#4a148c'>&nbsp;&nbsp;&nbsp;&nbsp; 🧠 Business Logic &nbsp;&nbsp;&nbsp;&nbsp;</div>"]
+    D --> E["<div style='color:#1b5e20'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 💾 Data Access &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>"]
+    E --> F[("<div style='color:#263238'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🗄️ Database &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>")]
 
     style A fill:#e1f5fe,stroke:#01579b,stroke-width:2px
     style B fill:#ffebee,stroke:#b71c1c,stroke-width:2px
@@ -56,6 +56,7 @@ graph TD
     style D fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     style E fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
     style F fill:#eceff1,stroke:#263238,stroke-width:2px
+
 ```
 
 ```mermaid
@@ -67,7 +68,7 @@ classDiagram
 
     %% --- LAYER 1: SERVICE INTERFACE (ORANGE) ---
     class UsersController {
-        << (🌐, #e65100) API Controller >>
+        << (🌐) API Controller >>
         -IUserService _userService
         +GetAll() Task~ActionResult~
         +GetById(int id) Task~ActionResult~
@@ -86,7 +87,7 @@ classDiagram
         +DeleteUserAsync(int id) Task~bool~
     }
     class UserService {
-        << (🧠, #4a148c) Service >>
+        << (🧠) Service >>
         -IUserRepository _userRepository
         -HashPassword(string) string
         +VerifyPassword(string, string) bool
@@ -99,7 +100,7 @@ classDiagram
         +FindByUsernameAsync(string) Task~User~
     }
     class BaseRepository~T~ {
-        << (📦, #1b5e20) Abstract >>
+        << (📦) Abstract >>
         #TContext _context
         #DbSet~T~ _dbSet
         +GetAllAsync() Task~IEnumerable~
@@ -109,16 +110,16 @@ classDiagram
         +DeleteAsync(int id) Task
     }
     class UserRepository {
-        << (💾, #1b5e20) Repository >>
+        << (💾) Repository >>
     }
 
     %% --- LAYER 4: MODELS & DATA (GRAY) ---
     class DatabaseContext {
-        << (🗄️, #263238) EF Core >>
+        << (🗄️) EF Core >>
         +DbSet~User~ Users
     }
     class User {
-        << (📦, #9e9e9e) Entity >>
+        << (📦) Entity >>
         +int Id
         +string Username
         +string Email
@@ -128,29 +129,32 @@ classDiagram
     class UpdateUserDto { <<DTO>> }
 
     %% --- RELATIONSHIPS ---
-    IUserService <|.. UserService
-    IUserRepository <|.. UserRepository
-    BaseRepository <|-- UserRepository
+    IUserService <|.. UserService : «implements»
+    IUserRepository <|.. UserRepository : «implements»
+    BaseRepository <|-- UserRepository : «inherits»
     
     %% Injections (Aggregation)
-    UsersController o-- IUserService : uses
-    UserService o-- IUserRepository : uses
-    UserRepository o-- DatabaseContext : uses
+    UsersController o-- IUserService : «use»
+    UserService o-- IUserRepository : «use»
+    UserRepository o-- DatabaseContext : «uses»
 
     %% Data Flow (Dependency)
-    UserService ..> User : creates/maps
-    UsersController ..> CreateUserDto : receives
-    UsersController ..> UpdateUserDto : receives
+    UserService ..> User : «creates/maps»
+    UsersController ..> CreateUserDto : «receives»
+    UsersController ..> UpdateUserDto : «receives»
 
     %% --- STYLING ---
-    style UsersController fill:#fff3e0,stroke:#e65100
-    style UserService fill:#f3e5f5,stroke:#4a148c
-    style UserRepository fill:#e8f5e9,stroke:#1b5e20
-    style DatabaseContext fill:#eceff1,stroke:#263238
-    style User fill:#f5f5f5,stroke:#9e9e9e
-    style IUserService fill:#f3e5f5,stroke:#4a148c
-    style IUserRepository fill:#e8f5e9,stroke:#1b5e20
-
+    style UsersController fill:#fff3e0,stroke:#e65100,color:#000
+    style UserService fill:#f3e5f5,stroke:#4a148c,color:#000
+    style UserRepository fill:#e8f5e9,stroke:#1b5e20,color:#000
+    style DatabaseContext fill:#eceff1,stroke:#263238,color:#000
+    style User fill:#f5f5f5,stroke:#9e9e9e,color:#000
+    style IUserService fill:#f3e5f5,stroke:#4a148c,color:#000
+    style IUserRepository fill:#e8f5e9,stroke:#1b5e20,color:#000
+    %% FIXED: Referred to the class name without generic tildes for styling
+    style BaseRepository fill:#e8f5e9,stroke:#1b5e20,color:#000
+    style CreateUserDto fill:#f5f5f5,stroke:#9e9e9e,color:#000
+    style UpdateUserDto fill:#f5f5f5,stroke:#9e9e9e,color:#000
 ```
 
 📁 Project Folder Structure
