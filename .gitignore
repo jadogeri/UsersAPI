@@ -503,3 +503,6 @@ Thumbs.db
 
 ## Environment Secrets
 appsettings.Development.json
+
+## database
+app.db

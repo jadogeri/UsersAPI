@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using UsersAPI.Models.DTOs;
 using UsersAPI.Models.Entities;
 using UsersAPI.Services;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace UsersAPI.Controllers
 {
@@ -23,6 +24,7 @@ namespace UsersAPI.Controllers
         [HttpGet("{id:int}")]
         public async Task<ActionResult<User>> GetById(int id)
         {
+            if(id.GetType() != typeof(int)) { return BadRequest("id '" + id + ", is Invalid"); }
             var user = await _userService.GetUserByIdAsync(id);
             return user != null ? Ok(user) : NotFound();
         }
