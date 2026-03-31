@@ -1,0 +1,15 @@
+```mermaid
+graph TD
+    A["<div style='color:#01579b'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🏠 Hosting Layer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>"] --> B["<div style='color:#b71c1c'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🛡️ Security Layer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>"]
+    B --> C["<div style='color:#e65100'>&nbsp;&nbsp;&nbsp; 📡 Service Interface &nbsp;&nbsp;&nbsp;</div>"]
+    C --> D["<div style='color:#4a148c'>&nbsp;&nbsp;&nbsp;&nbsp; 🧠 Business Logic &nbsp;&nbsp;&nbsp;&nbsp;</div>"]
+    D --> E["<div style='color:#1b5e20'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 💾 Data Access &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>"]
+    E --> F[("<div style='color:#263238'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🗄️ Database &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>")]
+
+    style A fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    style B fill:#ffebee,stroke:#b71c1c,stroke-width:2px
+    style C fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style D fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    style E fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    style F fill:#eceff1,stroke:#263238,stroke-width:2px
+```

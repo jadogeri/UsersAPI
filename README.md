@@ -21,7 +21,7 @@ A production-ready .NET 9 Web API designed for secure user management. This syst
     <li><a href="#project-overview">🏗 Project Overview</a> </li>
     <li><a href="#architecture">🏛 Architecture</a>
 		<ul>
-        	<li><a href="#six-layered-service">6-Tier Layered Service Architecture Diagram </a></li>
+        	<li><a href="#layered-service">Layered Service Architecture Diagram </a></li>
         	<li><a href="#class-diagram">🧩 Class Diagram </a></li>
 	        <li><a href="#folder-structure">📁 Project Folder Structure </a></li>
 		</ul>
@@ -34,7 +34,6 @@ A production-ready .NET 9 Web API designed for secure user management. This syst
 		</ul> 
 	</li>
     <li><a href="#technology-stack">💎 Technology Stack</a> </li>
-
     <li><a href="#getting-started">🚀 Getting Started</a> 
 		<ol type="1">
         	<li><a href="#service-reference">Service Reference (Connected Services)</a></li>
@@ -55,9 +54,12 @@ A production-ready .NET 9 Web API designed for secure user management. This syst
 </ul>
 
 ------------------------------
-🏗 Project Overview
+<a id="project-overview"></a>
+## **🏗 Project Overview**
 This project provides a centralized API for user CRUD operations. It is built with a "Security-First" mindset, ensuring that sensitive data is never exposed and that the system is resilient against common attack vectors like brute-force (via Argon2id) and database race conditions.
-🏛 Architecture
+
+<a id="architecture"></a>
+## **🏛 Architecture**
 The system follows a strict separation of concerns, ensuring that the database logic, business rules, and HTTP transport layers remain decoupled.
 
 | Layer | Responsibility | Components |
@@ -69,7 +71,10 @@ The system follows a strict separation of concerns, ensuring that the database l
 | 💾 Data Access | Repository & Entity Framework | UserRepository, BaseRepository |
 | 🗄️ Database | Persistence | SQL Server / InMemory |
 
-Layered Service Architecture Diagram
+<a id="layered-service"></a>
+### Layered Service Architecture Diagram 
+<details>
+<summary><b>🔍 Click to view 6-Tier Layered Service Architecture Diagram </b></summary>
 
 ```mermaid
 graph TD
@@ -85,9 +90,16 @@ graph TD
     style D fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     style E fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
     style F fill:#eceff1,stroke:#263238,stroke-width:2px
-
 ```
+</details>
 
+
+<a id="class-diagram"></a>
+### 🧩 Class Structure
+This diagram shows the relationships between the Service interfaces, Implement
+
+<details>
+<summary><b>🔍 Click to view Class Diagram</b></summary>
 ```mermaid
 ---
 title: UsersAPI Class Diagram
@@ -185,8 +197,13 @@ classDiagram
     style CreateUserDto fill:#f5f5f5,stroke:#9e9e9e,color:#000
     style UpdateUserDto fill:#f5f5f5,stroke:#9e9e9e,color:#000
 ```
+</details>
 
-📁 Project Folder Structure
+<a id="folder-structure"></a>
+### 📁 Project Folder Structure :
+
+<details>
+<summary><b>🔍 Click to view Project Folder Structure</b></summary>
 
 ```
 UsersAPI/
@@ -210,6 +227,7 @@ UsersAPI/
 ├── 📜 UsersAPI.slnx           # 💎 Modern Solution File
 └── 📜 README.md                # 📖 Project Documentation
 ```
+</details>
 ------------------------------
 🔐 Security Features
 
