@@ -26,13 +26,8 @@ A production-ready .NET 9 Web API designed for secure user management. This syst
 	        <li><a href="#folder-structure">📁 Project Folder Structure </a></li>
 		</ul>
     </li>
-    <li><a href="#workflow-diagrams">⚙️ Workflow & Interaction Diagrams</a></li>
     <li><a href="#security-features">🔐 Security Features</a></li>
-    <li><a href="#api-reference">🚀 Service Endpoints & API Reference</a>
-		<ul>
-			<li><a href="#GetAssessmentUpdateStatus">1. GetAssessmentUpdateStatus</a></li>
-		</ul> 
-	</li>
+    <li><a href="#api-reference">🚀 Service Endpoints & API Reference</a></li>
     <li><a href="#technology-stack">💎 Technology Stack</a> </li>
     <li><a href="#getting-started">🚀 Getting Started</a> 
 		<ol type="1">
@@ -100,6 +95,7 @@ This diagram shows the relationships between the Service interfaces, Implement
 
 <details>
 <summary><b>🔍 Click to view Class Diagram</b></summary>
+
 ```mermaid
 ---
 title: UsersAPI Class Diagram
@@ -228,16 +224,18 @@ UsersAPI/
 └── 📜 README.md                # 📖 Project Documentation
 ```
 </details>
-------------------------------
-🔐 Security Features
+
+## 🔐 Security Features
 
    1. Argon2id Hashing: Uses Konscious.Security.Cryptography to provide memory-hard, side-channel resistant password hashing.
    2. Salt Generation: Cryptographically secure 16-byte unique salts per user.
    3. Global Exception Handling: Uses IExceptionHandler to intercept errors and return standardized ProblemDetails (RFC 7807) without leaking stack traces.
    4. Data Isolation: Uses DTOs (CreateUserDto, UpdateUserDto) to ensure internal entities and password hashes are never returned in API responses.
 
-------------------------------
-🚀 Service Endpoints
+<a id="api-reference"></a>
+## **🚀 Service Endpoints & API Reference**
+<details>
+<summary><b>🔍 Click to view Service Endpoints & API Reference</b></summary>
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -246,6 +244,8 @@ UsersAPI/
 | POST | /api/users | Register a new user |
 | PUT | /api/users/{id} | Update user profile |
 | DELETE | /api/users/{id} | Remove a user |
+
+</details>
 
 ------------------------------
 💎 Technology Stack
