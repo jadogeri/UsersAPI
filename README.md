@@ -1,30 +1,59 @@
-🌐 UsersAPIModern RESTful User Management Service
-Author: Joseph Adogeri
-Version: 1.0.0
-Date: March 30, 2026
-------------------------------
-Description
-A production-ready .NET 9 Web API designed for secure user management. This system implements industry-standard security using Argon2id password hashing, a robust Repository Pattern, and a global exception handling middleware to ensure consistent, secure, and reliable API interactions.
-Authors
 
-* Joseph Adogeri
+## **🌐 UsersAPIModern RESTful User Management Service**
 
-------------------------------
-📋 Table of Contents
+**Author:** Joseph Adogeri
 
-🏗 Project Overview
-🏛 Architecture
+**Version:** 1.0.0
 
-Layered Service Architecture Diagram
-📁 Project Folder Structure
+**Date:** March 30, 2026
 
+---
 
-🔐 Security Features
-🚀 Service Endpoints
-💎 Technology Stack
-🚀 Getting Started
-🧪 Testing Suite
-🔄 CI/CD Pipeline
+## Description
+
+A production-ready .NET 9 Web API designed for secure user management. This system implements industry-standard security using Argon2id password hashing, a robust Repository Pattern, and a global exception handling middleware to ensure consistent, secure, and reliable API interactions.## Authors
+
+- [joseph adogeri](https://www.github.com/jadogeri) 
+
+## 📋 Table of Contents
+
+<ul>
+    <li><a href="#project-overview">🏗 Project Overview</a> </li>
+    <li><a href="#architecture">🏛 Architecture</a>
+		<ul>
+        	<li><a href="#six-layered-service">6-Tier Layered Service Architecture Diagram </a></li>
+        	<li><a href="#class-diagram">🧩 Class Diagram </a></li>
+	        <li><a href="#folder-structure">📁 Project Folder Structure </a></li>
+		</ul>
+    </li>
+    <li><a href="#workflow-diagrams">⚙️ Workflow & Interaction Diagrams</a></li>
+    <li><a href="#security-features">🔐 Security Features</a></li>
+    <li><a href="#api-reference">🚀 Service Endpoints & API Reference</a>
+		<ul>
+			<li><a href="#GetAssessmentUpdateStatus">1. GetAssessmentUpdateStatus</a></li>
+		</ul> 
+	</li>
+    <li><a href="#technology-stack">💎 Technology Stack</a> </li>
+
+    <li><a href="#getting-started">🚀 Getting Started</a> 
+		<ol type="1">
+        	<li><a href="#service-reference">Service Reference (Connected Services)</a></li>
+        	<li><a href="#file-setup">File Setup</a></li>
+	        <li><a href="#configuration">Configuration</a></li>
+			<li><a href="#security-and-production">Security & Production</a></li>
+		</ol>
+	</li>
+    <li><a href="#testing-the-service">🧪 Testing the Service</a>
+		<ul>
+			<li><a href="#testing-explorer">Running Tests via Test Explorer
+</a></li>
+        	<li><a href="#debugging-test">Debugging a Specific Test</a></li>
+        	<li><a href="#testing-example">Example Test Structure</a></li>
+		</ul>
+	</li>
+    <li><a href="#ci-cd-pipeline">🔄 CI/CD Pipeline</a> </li>
+</ul>
+
 ------------------------------
 🏗 Project Overview
 This project provides a centralized API for user CRUD operations. It is built with a "Security-First" mindset, ensuring that sensitive data is never exposed and that the system is resilient against common attack vectors like brute-force (via Argon2id) and database race conditions.
