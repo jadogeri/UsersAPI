@@ -58,6 +58,7 @@ graph TD
     style F fill:#eceff1,stroke:#263238,stroke-width:2px
 ```
 
+```mermaid
 ---
 title: UsersAPI Class Diagram
 ---
