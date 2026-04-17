@@ -51,7 +51,7 @@ A production-ready .NET 9 Web API designed for secure user management. This syst
 ------------------------------
 <a id="project-overview"></a>
 ## **🏗 Project Overview**
-This project provides a centralized API for user CRUD operations. It is built with a "Security-First" mindset, ensuring that sensitive data is never exposed and that the system is resilient against common attack vectors like brute-force (via Argon2id) and database race conditions.
+This project provides a centralized API for user CRUD operations. It is built with a "Security-First" mindset, ensuring that sensitive data is never exposed and that the system is resilient against common attack vectors like brute-force (via Argon2) and database race conditions.
 
 <a id="architecture"></a>
 ## **🏛 Architecture**
